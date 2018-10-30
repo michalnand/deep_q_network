@@ -1,8 +1,8 @@
 OUTPUT_NAME = libs_dqn
 
-LIBS_RYSY_PATH=$(HOME)/rysy
+# LIBS_RYSY_PATH=$(HOME)/rysy
 
-INC+= -I. 
+INC+= -I.
 INC+= -I$(LIBS_RYSY_PATH)/libs_common
 INC+= -I$(LIBS_RYSY_PATH)/libs_experiment
 INC+= -I$(LIBS_RYSY_PATH)/libs_nn
