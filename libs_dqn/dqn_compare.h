@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 
-#include "json_config.h"
-#include "histogram.h"
+#include <json_config.h>
+#include <histogram.h>
 
 class DQNCompare
 {
