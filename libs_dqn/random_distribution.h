@@ -28,7 +28,7 @@ class RandomDistribution
 
   private:
     double rnd();
-    unsigned int search(float value);
+    unsigned int search(double value);
 };
 
 #endif

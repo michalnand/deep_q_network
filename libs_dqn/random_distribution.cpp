@@ -1,5 +1,6 @@
 #include "random_distribution.h"
-#include <stdlib.h>
+#include <iostream>
+
 
 RandomDistribution::RandomDistribution()
 {
@@ -54,7 +55,7 @@ void RandomDistribution::set(std::vector<float> &p_, int count)
 {
   if (count < 0)
     count = p_.size();
-
+ 
   p.resize(count);
  
 
@@ -79,13 +80,15 @@ void RandomDistribution::set(std::vector<float> &p_, int count)
     for (unsigned int i = 0; i < p.size(); i++)
       p[i]/= sum;
   }
+ 
 
+ 
   sum = 0.0;
   for (unsigned int i = 0; i < p.size(); i++)
   {
     sum+= p[i];
     p[i] = sum;
-  }
+  } 
 }
 
 unsigned int RandomDistribution::get()
@@ -97,32 +100,33 @@ unsigned int RandomDistribution::get()
 
 
 double RandomDistribution::rnd()
-{
-  return (rand()%1000000000)/(double)1000000000.0;
-}
+{ 
+  return ((double) rand() / (RAND_MAX)) ; 
+} 
 
-unsigned int RandomDistribution::search(float value)
+unsigned int RandomDistribution::search(double value)
 {
   unsigned int center = 0;
   unsigned int left   = 0;
   unsigned int right  = p.size()-1;
 
-  unsigned int result = 0;
+  unsigned int result = 0; 
 
-  if (value > p[0])
+  if (value > p[0])  
   {
     while (left <= right)
-    {
+    { 
       center = (left + right)/2;
-
+  
       if (value < p[center])
-        right = center - 1;
+        right = center-1;
       else
-        left  = center + 1;
-    }
+        left  = center+1;
+    } 
 
-    result = (right + left)/2;
+    result = 1 + (right + left)/2;
   }
 
+   
   return result;
 }
