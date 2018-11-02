@@ -92,7 +92,7 @@ void DDQN::init(   Json::Value &json_config,
 
 void DDQN::compute_q_values(std::vector<float> &state)
 {
-  cnn->forward(nn_output, state); 
+  cnn->forward(nn_output, state);
 
   nn_output_to_q_values(q_values, nn_output);
 }
@@ -261,11 +261,7 @@ void DDQN::print()
 
 void DDQN::q_values_to_nn_output(std::vector<float> &nn_output, std::vector<float> &q_values)
 {
-  float value = 0.0;
-  for (unsigned int i = 0; i < q_values.size(); i++)
-    value+= q_values[i];
-  value = value/q_values.size();
-
+  float value = v_average(q_values);
 
   for (unsigned int i = 0; i < q_values.size(); i++)
     nn_output[i] = q_values[i] - value;
@@ -276,6 +272,20 @@ void DDQN::q_values_to_nn_output(std::vector<float> &nn_output, std::vector<floa
 void DDQN::nn_output_to_q_values(std::vector<float> &q_values, std::vector<float> &nn_output)
 {
   float value = nn_output[nn_output.size()-1];
+
+  float average = v_average(q_values);
+
   for (unsigned int i = 0; i < q_values.size(); i++)
-    q_values[i] = nn_output[i] + value;
+    q_values[i] = nn_output[i] - average + value;
+}
+
+
+float DDQN::v_average(std::vector<float> &v)
+{
+  float average = 0.0;
+  for (unsigned int i = 0; i < v.size(); i++)
+    average+= v[i];
+  average = average/v.size();
+
+  return average;
 }
