@@ -272,20 +272,23 @@ void DDQN::q_values_to_nn_output(std::vector<float> &nn_output, std::vector<floa
 void DDQN::nn_output_to_q_values(std::vector<float> &q_values, std::vector<float> &nn_output)
 {
   float value = nn_output[nn_output.size()-1];
-
-  float average = v_average(q_values);
+ 
+  float average = v_average(nn_output, nn_output.size()-1);
 
   for (unsigned int i = 0; i < q_values.size(); i++)
     q_values[i] = nn_output[i] - average + value;
 }
 
 
-float DDQN::v_average(std::vector<float> &v)
+float DDQN::v_average(std::vector<float> &v, int size)
 {
+  if (size < 0)
+    size = v.size();
+
   float average = 0.0;
-  for (unsigned int i = 0; i < v.size(); i++)
+  for (unsigned int i = 0; i < (unsigned int)size; i++)
     average+= v[i];
-  average = average/v.size();
+  average = average/size;
 
   return average;
 }

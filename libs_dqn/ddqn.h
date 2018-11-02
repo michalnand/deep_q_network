@@ -62,7 +62,7 @@ class DDQN: public DQNInterface
     void buffer_clear();
     void q_values_to_nn_output(std::vector<float> &nn_output, std::vector<float> &q_values);
     void nn_output_to_q_values(std::vector<float> &q_values, std::vector<float> &nn_output);
-    float v_average(std::vector<float> &v);
+    float v_average(std::vector<float> &v, int size = -1);
 
 };
 
