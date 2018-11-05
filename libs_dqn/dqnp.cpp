@@ -46,28 +46,9 @@ void DQNP::init(   Json::Value &json_config,
       cnn = nullptr;
     }
 
-    state_size = state_geometry.w*state_geometry.h*state_geometry.d;
-
-
-    experience_buffer.resize(experience_buffer_size);
-
-    for (unsigned int i = 0; i < experience_buffer.size(); i++)
-    {
-      experience_buffer[i].state.resize(state_size);
-      experience_buffer[i].q_values.resize(actions_count);
-
-      experience_buffer[i].reward   = 0.0;
-      experience_buffer[i].action   = 0;
-      experience_buffer[i].is_final = false;
-    }
-
     priority.resize(experience_buffer_size);
     for (unsigned int i = 0; i < priority.size(); i++)
       priority[i] = 1.0;
-
-
-    current_ptr = 0;
-    buffer_clear();
 
     this->gamma = gamma;
 
@@ -87,35 +68,6 @@ void DQNP::init(   Json::Value &json_config,
 void DQNP::compute_q_values(std::vector<float> &state)
 {
   cnn->forward(q_values, state);
-}
-
-
-void DQNP::add(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float reward)
-{
-  if (current_ptr < experience_buffer.size())
-  {
-    experience_buffer[current_ptr].state      = state;
-    experience_buffer[current_ptr].q_values   = q_values;
-    experience_buffer[current_ptr].action     = action;
-    experience_buffer[current_ptr].reward     = reward;
-    experience_buffer[current_ptr].is_final   = false;
-
-    current_ptr++;
-  }
-}
-
-void DQNP::add_final(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float final_reward)
-{
-  if (current_ptr < experience_buffer.size())
-  {
-    experience_buffer[current_ptr].state      = state;
-    experience_buffer[current_ptr].q_values   = q_values;
-    experience_buffer[current_ptr].action     = action;
-    experience_buffer[current_ptr].reward     = final_reward;
-    experience_buffer[current_ptr].is_final   = true;
-
-    current_ptr++;
-  }
 }
 
 void DQNP::learn()
@@ -146,7 +98,7 @@ void DQNP::learn()
 
     float q = reward + gamma_*experience_buffer[state_next].q_values[best_action_next];
 
- 
+
     float error = q - experience_buffer[state].q_values[action];
 
     if (error < 0)
@@ -209,22 +161,6 @@ bool DQNP::is_full()
     return true;
 
   return false;
-}
-
-void DQNP::buffer_clear()
-{
-  for (unsigned int j = 0; j < experience_buffer.size(); j++)
-  {
-    for (unsigned int i = 0; i < state_size; i++)
-      experience_buffer[j].state[i] = 0.0;
-
-    for (unsigned int i = 0; i < actions_count; i++)
-      experience_buffer[j].q_values[i] = 0.0;
-
-    experience_buffer[j].action   = 0;
-    experience_buffer[j].reward   = 0.0;
-    experience_buffer[j].is_final = false;
-  }
 }
 
 

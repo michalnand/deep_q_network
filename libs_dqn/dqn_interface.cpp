@@ -26,6 +26,70 @@ void DQNInterface::init_interface(sGeometry state_geometry, unsigned int actions
   q_values.resize(actions_count);
 
   this->state_size = state_geometry.w*state_geometry.h*state_geometry.d;
+
+
+  state_size = state_geometry.w*state_geometry.h*state_geometry.d;
+
+  experience_buffer.resize(experience_buffer_size);
+
+  for (unsigned int i = 0; i < experience_buffer.size(); i++)
+  {
+    experience_buffer[i].state.resize(state_size);
+    experience_buffer[i].q_values.resize(actions_count);
+
+    experience_buffer[i].reward   = 0.0;
+    experience_buffer[i].action   = 0;
+    experience_buffer[i].is_final = false;
+  }
+
+
+  current_ptr = 0;
+  buffer_clear();
+}
+
+
+void DQNInterface::buffer_clear()
+{
+  for (unsigned int j = 0; j < experience_buffer.size(); j++)
+  {
+    for (unsigned int i = 0; i < state_size; i++)
+      experience_buffer[j].state[i] = 0.0;
+
+    for (unsigned int i = 0; i < actions_count; i++)
+      experience_buffer[j].q_values[i] = 0.0;
+
+    experience_buffer[j].action   = 0;
+    experience_buffer[j].reward   = 0.0;
+    experience_buffer[j].is_final = false;
+  }
+}
+
+void DQNInterface::add(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float reward)
+{
+  if (current_ptr < experience_buffer.size())
+  {
+    experience_buffer[current_ptr].state      = state;
+    experience_buffer[current_ptr].q_values   = q_values;
+    experience_buffer[current_ptr].action     = action;
+    experience_buffer[current_ptr].reward     = reward;
+    experience_buffer[current_ptr].is_final   = false;
+
+    current_ptr++;
+  }
+}
+
+void DQNInterface::add_final(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float final_reward)
+{
+  if (current_ptr < experience_buffer.size())
+  {
+    experience_buffer[current_ptr].state      = state;
+    experience_buffer[current_ptr].q_values   = q_values;
+    experience_buffer[current_ptr].action     = action;
+    experience_buffer[current_ptr].reward     = final_reward;
+    experience_buffer[current_ptr].is_final   = true;
+
+    current_ptr++;
+  }
 }
 
 std::vector<float>& DQNInterface::get_q_values()
@@ -42,22 +106,6 @@ float DQNInterface::get_max_q_value()
 void DQNInterface::compute_q_values(std::vector<float> &state)
 {
   (void)state;
-}
-
-void DQNInterface::add(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float reward)
-{
-  (void)state;
-  (void)q_values;
-  (void)action;
-  (void)reward;
-}
-
-void DQNInterface::add_final(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float final_reward)
-{
-  (void)state;
-  (void)q_values;
-  (void)action;
-  (void)final_reward;
 }
 
 void DQNInterface::learn()
@@ -84,6 +132,17 @@ DQNCompare& DQNInterface::get_compare_result()
 {
   return compare;
 }
+
+void DQNInterface::save(std::string file_name_prefix)
+{
+  cnn->save(file_name_prefix);
+}
+
+void DQNInterface::load_weights(std::string file_name_prefix)
+{
+  cnn->load_weights(file_name_prefix);
+}
+
 
 float DQNInterface::saturate(float value, float min, float max)
 {

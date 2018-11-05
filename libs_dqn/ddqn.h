@@ -3,27 +3,13 @@
 
 #include "dqn_interface.h"
 
-struct sDDQNExperienceBuffer
-{
-  std::vector<float> state;
-  std::vector<float> q_values;
-  unsigned int action;
-
-  float reward;
-
-  bool is_final;
-};
 
 class DDQN: public DQNInterface
 {
   protected:
-    unsigned int current_ptr;
     std::vector<float> priority;
-    std::vector<sDDQNExperienceBuffer> experience_buffer;
 
     float gamma;
-
-    CNN *cnn;
 
     std::vector<float> nn_output;
 
@@ -45,9 +31,7 @@ class DDQN: public DQNInterface
 
 
     void compute_q_values(std::vector<float> &state);
-    void add(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float reward);
-    void add_final(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float final_reward);
-
+  
     void learn();
     void test();
 
@@ -59,7 +43,6 @@ class DDQN: public DQNInterface
 
 
   protected:
-    void buffer_clear();
     void q_values_to_nn_output(std::vector<float> &nn_output, std::vector<float> &q_values);
     void nn_output_to_q_values(std::vector<float> &q_values, std::vector<float> &nn_output);
     float v_average(std::vector<float> &v, int size = -1);

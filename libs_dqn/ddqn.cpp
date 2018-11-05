@@ -47,28 +47,9 @@ void DDQN::init(   Json::Value &json_config,
       cnn = nullptr;
     }
 
-    state_size = state_geometry.w*state_geometry.h*state_geometry.d;
-
-
-    experience_buffer.resize(experience_buffer_size);
-
-    for (unsigned int i = 0; i < experience_buffer.size(); i++)
-    {
-      experience_buffer[i].state.resize(state_size);
-      experience_buffer[i].q_values.resize(actions_count);
-
-      experience_buffer[i].reward   = 0.0;
-      experience_buffer[i].action   = 0;
-      experience_buffer[i].is_final = false;
-    }
-
     priority.resize(experience_buffer_size);
     for (unsigned int i = 0; i < priority.size(); i++)
       priority[i] = 1.0;
-
-
-    current_ptr = 0;
-    buffer_clear();
 
     this->gamma = gamma;
 
@@ -97,34 +78,6 @@ void DDQN::compute_q_values(std::vector<float> &state)
   nn_output_to_q_values(q_values, nn_output);
 }
 
-
-void DDQN::add(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float reward)
-{
-  if (current_ptr < experience_buffer.size())
-  {
-    experience_buffer[current_ptr].state      = state;
-    experience_buffer[current_ptr].q_values   = q_values;
-    experience_buffer[current_ptr].action     = action;
-    experience_buffer[current_ptr].reward     = reward;
-    experience_buffer[current_ptr].is_final   = false;
-
-    current_ptr++;
-  }
-}
-
-void DDQN::add_final(std::vector<float> &state, std::vector<float> &q_values, unsigned int action, float final_reward)
-{
-  if (current_ptr < experience_buffer.size())
-  {
-    experience_buffer[current_ptr].state      = state;
-    experience_buffer[current_ptr].q_values   = q_values;
-    experience_buffer[current_ptr].action     = action;
-    experience_buffer[current_ptr].reward     = final_reward;
-    experience_buffer[current_ptr].is_final   = true;
-
-    current_ptr++;
-  }
-}
 
 
 
@@ -227,23 +180,6 @@ bool DDQN::is_full()
   return false;
 }
 
-void DDQN::buffer_clear()
-{
-  for (unsigned int j = 0; j < experience_buffer.size(); j++)
-  {
-    for (unsigned int i = 0; i < state_size; i++)
-      experience_buffer[j].state[i] = 0.0;
-
-    for (unsigned int i = 0; i < actions_count; i++)
-      experience_buffer[j].q_values[i] = 0.0;
-
-    experience_buffer[j].action   = 0;
-    experience_buffer[j].reward   = 0.0;
-    experience_buffer[j].is_final = false;
-  }
-}
-
-
 void DDQN::print()
 {
   for (unsigned int j = 0; j < current_ptr; j++)
@@ -272,7 +208,7 @@ void DDQN::q_values_to_nn_output(std::vector<float> &nn_output, std::vector<floa
 void DDQN::nn_output_to_q_values(std::vector<float> &q_values, std::vector<float> &nn_output)
 {
   float value = nn_output[nn_output.size()-1];
- 
+
   float average = v_average(nn_output, nn_output.size()-1);
 
   for (unsigned int i = 0; i < q_values.size(); i++)
