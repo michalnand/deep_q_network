@@ -1,23 +1,27 @@
 /* File : example_lib.i */
 %module dqn
 
-%include <std_string.i>
 %include <std_vector.i>
+%include <std_string.i>
 
-using std::string;
+%template(VectorChar) std::vector<char>;
+%template(VectorUnsignedChar) std::vector<unsigned char>;
+%template(VectorInt) std::vector<int>;
+%template(VectorUnsignedInt) std::vector<unsigned int>;
+%template(VectorFloat) std::vector<float>;
+%template(VectorDouble) std::vector<double>;
 
-%template(CharVector) std::vector<char>;
-%template(UnsignedCharVector) std::vector<unsigned char>;
-%template(IntVector) std::vector<int>;
-%template(UnsignedIntVector) std::vector<unsigned int>;
-%template(FloatVector) std::vector<float>;
-%template(DoubleVector) std::vector<double>;
+%template(MatrixInt) std::vector<std::vector<int>>;
+%template(MatrixUnsignedInt) std::vector<std::vector<unsigned int>>;
 
-%template(IntMatrix) std::vector<std::vector<int>>;
-%template(UnsignedIntMatrix) std::vector<std::vector<unsigned int>>;
+%template(MatrixFloat) std::vector<std::vector<float>>;
+%template(MatrixDouble) std::vector<std::vector<double>>;
 
-%template(FloatMatrix) std::vector<std::vector<float>>;
-%template(DoubleMatrix) std::vector<std::vector<double>>;
+
+%module example
+
+%apply const std::string& {std::string* foo};
+
 
 
 %{

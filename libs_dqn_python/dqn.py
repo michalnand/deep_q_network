@@ -159,1135 +159,1135 @@ class SwigPyIterator(_object):
 SwigPyIterator_swigregister = _dqn.SwigPyIterator_swigregister
 SwigPyIterator_swigregister(SwigPyIterator)
 
-class CharVector(_object):
+class VectorChar(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, CharVector, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, VectorChar, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, CharVector, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, VectorChar, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.CharVector_iterator(self)
+        return _dqn.VectorChar_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.CharVector___nonzero__(self)
+        return _dqn.VectorChar___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.CharVector___bool__(self)
+        return _dqn.VectorChar___bool__(self)
 
     def __len__(self):
-        return _dqn.CharVector___len__(self)
+        return _dqn.VectorChar___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.CharVector___getslice__(self, i, j)
+        return _dqn.VectorChar___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.CharVector___setslice__(self, *args)
+        return _dqn.VectorChar___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.CharVector___delslice__(self, i, j)
+        return _dqn.VectorChar___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.CharVector___delitem__(self, *args)
+        return _dqn.VectorChar___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.CharVector___getitem__(self, *args)
+        return _dqn.VectorChar___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.CharVector___setitem__(self, *args)
+        return _dqn.VectorChar___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.CharVector_pop(self)
+        return _dqn.VectorChar_pop(self)
 
     def append(self, x):
-        return _dqn.CharVector_append(self, x)
+        return _dqn.VectorChar_append(self, x)
 
     def empty(self):
-        return _dqn.CharVector_empty(self)
+        return _dqn.VectorChar_empty(self)
 
     def size(self):
-        return _dqn.CharVector_size(self)
+        return _dqn.VectorChar_size(self)
 
     def swap(self, v):
-        return _dqn.CharVector_swap(self, v)
+        return _dqn.VectorChar_swap(self, v)
 
     def begin(self):
-        return _dqn.CharVector_begin(self)
+        return _dqn.VectorChar_begin(self)
 
     def end(self):
-        return _dqn.CharVector_end(self)
+        return _dqn.VectorChar_end(self)
 
     def rbegin(self):
-        return _dqn.CharVector_rbegin(self)
+        return _dqn.VectorChar_rbegin(self)
 
     def rend(self):
-        return _dqn.CharVector_rend(self)
+        return _dqn.VectorChar_rend(self)
 
     def clear(self):
-        return _dqn.CharVector_clear(self)
+        return _dqn.VectorChar_clear(self)
 
     def get_allocator(self):
-        return _dqn.CharVector_get_allocator(self)
+        return _dqn.VectorChar_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.CharVector_pop_back(self)
+        return _dqn.VectorChar_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.CharVector_erase(self, *args)
+        return _dqn.VectorChar_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_CharVector(*args)
+        this = _dqn.new_VectorChar(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.CharVector_push_back(self, x)
+        return _dqn.VectorChar_push_back(self, x)
 
     def front(self):
-        return _dqn.CharVector_front(self)
+        return _dqn.VectorChar_front(self)
 
     def back(self):
-        return _dqn.CharVector_back(self)
+        return _dqn.VectorChar_back(self)
 
     def assign(self, n, x):
-        return _dqn.CharVector_assign(self, n, x)
+        return _dqn.VectorChar_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.CharVector_resize(self, *args)
+        return _dqn.VectorChar_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.CharVector_insert(self, *args)
+        return _dqn.VectorChar_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.CharVector_reserve(self, n)
+        return _dqn.VectorChar_reserve(self, n)
 
     def capacity(self):
-        return _dqn.CharVector_capacity(self)
-    __swig_destroy__ = _dqn.delete_CharVector
+        return _dqn.VectorChar_capacity(self)
+    __swig_destroy__ = _dqn.delete_VectorChar
     __del__ = lambda self: None
-CharVector_swigregister = _dqn.CharVector_swigregister
-CharVector_swigregister(CharVector)
+VectorChar_swigregister = _dqn.VectorChar_swigregister
+VectorChar_swigregister(VectorChar)
 
-class UnsignedCharVector(_object):
+class VectorUnsignedChar(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, UnsignedCharVector, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, VectorUnsignedChar, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, UnsignedCharVector, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, VectorUnsignedChar, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.UnsignedCharVector_iterator(self)
+        return _dqn.VectorUnsignedChar_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.UnsignedCharVector___nonzero__(self)
+        return _dqn.VectorUnsignedChar___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.UnsignedCharVector___bool__(self)
+        return _dqn.VectorUnsignedChar___bool__(self)
 
     def __len__(self):
-        return _dqn.UnsignedCharVector___len__(self)
+        return _dqn.VectorUnsignedChar___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.UnsignedCharVector___getslice__(self, i, j)
+        return _dqn.VectorUnsignedChar___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.UnsignedCharVector___setslice__(self, *args)
+        return _dqn.VectorUnsignedChar___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.UnsignedCharVector___delslice__(self, i, j)
+        return _dqn.VectorUnsignedChar___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.UnsignedCharVector___delitem__(self, *args)
+        return _dqn.VectorUnsignedChar___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.UnsignedCharVector___getitem__(self, *args)
+        return _dqn.VectorUnsignedChar___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.UnsignedCharVector___setitem__(self, *args)
+        return _dqn.VectorUnsignedChar___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.UnsignedCharVector_pop(self)
+        return _dqn.VectorUnsignedChar_pop(self)
 
     def append(self, x):
-        return _dqn.UnsignedCharVector_append(self, x)
+        return _dqn.VectorUnsignedChar_append(self, x)
 
     def empty(self):
-        return _dqn.UnsignedCharVector_empty(self)
+        return _dqn.VectorUnsignedChar_empty(self)
 
     def size(self):
-        return _dqn.UnsignedCharVector_size(self)
+        return _dqn.VectorUnsignedChar_size(self)
 
     def swap(self, v):
-        return _dqn.UnsignedCharVector_swap(self, v)
+        return _dqn.VectorUnsignedChar_swap(self, v)
 
     def begin(self):
-        return _dqn.UnsignedCharVector_begin(self)
+        return _dqn.VectorUnsignedChar_begin(self)
 
     def end(self):
-        return _dqn.UnsignedCharVector_end(self)
+        return _dqn.VectorUnsignedChar_end(self)
 
     def rbegin(self):
-        return _dqn.UnsignedCharVector_rbegin(self)
+        return _dqn.VectorUnsignedChar_rbegin(self)
 
     def rend(self):
-        return _dqn.UnsignedCharVector_rend(self)
+        return _dqn.VectorUnsignedChar_rend(self)
 
     def clear(self):
-        return _dqn.UnsignedCharVector_clear(self)
+        return _dqn.VectorUnsignedChar_clear(self)
 
     def get_allocator(self):
-        return _dqn.UnsignedCharVector_get_allocator(self)
+        return _dqn.VectorUnsignedChar_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.UnsignedCharVector_pop_back(self)
+        return _dqn.VectorUnsignedChar_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.UnsignedCharVector_erase(self, *args)
+        return _dqn.VectorUnsignedChar_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_UnsignedCharVector(*args)
+        this = _dqn.new_VectorUnsignedChar(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.UnsignedCharVector_push_back(self, x)
+        return _dqn.VectorUnsignedChar_push_back(self, x)
 
     def front(self):
-        return _dqn.UnsignedCharVector_front(self)
+        return _dqn.VectorUnsignedChar_front(self)
 
     def back(self):
-        return _dqn.UnsignedCharVector_back(self)
+        return _dqn.VectorUnsignedChar_back(self)
 
     def assign(self, n, x):
-        return _dqn.UnsignedCharVector_assign(self, n, x)
+        return _dqn.VectorUnsignedChar_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.UnsignedCharVector_resize(self, *args)
+        return _dqn.VectorUnsignedChar_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.UnsignedCharVector_insert(self, *args)
+        return _dqn.VectorUnsignedChar_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.UnsignedCharVector_reserve(self, n)
+        return _dqn.VectorUnsignedChar_reserve(self, n)
 
     def capacity(self):
-        return _dqn.UnsignedCharVector_capacity(self)
-    __swig_destroy__ = _dqn.delete_UnsignedCharVector
+        return _dqn.VectorUnsignedChar_capacity(self)
+    __swig_destroy__ = _dqn.delete_VectorUnsignedChar
     __del__ = lambda self: None
-UnsignedCharVector_swigregister = _dqn.UnsignedCharVector_swigregister
-UnsignedCharVector_swigregister(UnsignedCharVector)
+VectorUnsignedChar_swigregister = _dqn.VectorUnsignedChar_swigregister
+VectorUnsignedChar_swigregister(VectorUnsignedChar)
 
-class IntVector(_object):
+class VectorInt(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, IntVector, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, VectorInt, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, IntVector, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, VectorInt, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.IntVector_iterator(self)
+        return _dqn.VectorInt_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.IntVector___nonzero__(self)
+        return _dqn.VectorInt___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.IntVector___bool__(self)
+        return _dqn.VectorInt___bool__(self)
 
     def __len__(self):
-        return _dqn.IntVector___len__(self)
+        return _dqn.VectorInt___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.IntVector___getslice__(self, i, j)
+        return _dqn.VectorInt___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.IntVector___setslice__(self, *args)
+        return _dqn.VectorInt___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.IntVector___delslice__(self, i, j)
+        return _dqn.VectorInt___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.IntVector___delitem__(self, *args)
+        return _dqn.VectorInt___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.IntVector___getitem__(self, *args)
+        return _dqn.VectorInt___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.IntVector___setitem__(self, *args)
+        return _dqn.VectorInt___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.IntVector_pop(self)
+        return _dqn.VectorInt_pop(self)
 
     def append(self, x):
-        return _dqn.IntVector_append(self, x)
+        return _dqn.VectorInt_append(self, x)
 
     def empty(self):
-        return _dqn.IntVector_empty(self)
+        return _dqn.VectorInt_empty(self)
 
     def size(self):
-        return _dqn.IntVector_size(self)
+        return _dqn.VectorInt_size(self)
 
     def swap(self, v):
-        return _dqn.IntVector_swap(self, v)
+        return _dqn.VectorInt_swap(self, v)
 
     def begin(self):
-        return _dqn.IntVector_begin(self)
+        return _dqn.VectorInt_begin(self)
 
     def end(self):
-        return _dqn.IntVector_end(self)
+        return _dqn.VectorInt_end(self)
 
     def rbegin(self):
-        return _dqn.IntVector_rbegin(self)
+        return _dqn.VectorInt_rbegin(self)
 
     def rend(self):
-        return _dqn.IntVector_rend(self)
+        return _dqn.VectorInt_rend(self)
 
     def clear(self):
-        return _dqn.IntVector_clear(self)
+        return _dqn.VectorInt_clear(self)
 
     def get_allocator(self):
-        return _dqn.IntVector_get_allocator(self)
+        return _dqn.VectorInt_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.IntVector_pop_back(self)
+        return _dqn.VectorInt_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.IntVector_erase(self, *args)
+        return _dqn.VectorInt_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_IntVector(*args)
+        this = _dqn.new_VectorInt(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.IntVector_push_back(self, x)
+        return _dqn.VectorInt_push_back(self, x)
 
     def front(self):
-        return _dqn.IntVector_front(self)
+        return _dqn.VectorInt_front(self)
 
     def back(self):
-        return _dqn.IntVector_back(self)
+        return _dqn.VectorInt_back(self)
 
     def assign(self, n, x):
-        return _dqn.IntVector_assign(self, n, x)
+        return _dqn.VectorInt_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.IntVector_resize(self, *args)
+        return _dqn.VectorInt_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.IntVector_insert(self, *args)
+        return _dqn.VectorInt_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.IntVector_reserve(self, n)
+        return _dqn.VectorInt_reserve(self, n)
 
     def capacity(self):
-        return _dqn.IntVector_capacity(self)
-    __swig_destroy__ = _dqn.delete_IntVector
+        return _dqn.VectorInt_capacity(self)
+    __swig_destroy__ = _dqn.delete_VectorInt
     __del__ = lambda self: None
-IntVector_swigregister = _dqn.IntVector_swigregister
-IntVector_swigregister(IntVector)
+VectorInt_swigregister = _dqn.VectorInt_swigregister
+VectorInt_swigregister(VectorInt)
 
-class UnsignedIntVector(_object):
+class VectorUnsignedInt(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, UnsignedIntVector, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, VectorUnsignedInt, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, UnsignedIntVector, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, VectorUnsignedInt, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.UnsignedIntVector_iterator(self)
+        return _dqn.VectorUnsignedInt_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.UnsignedIntVector___nonzero__(self)
+        return _dqn.VectorUnsignedInt___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.UnsignedIntVector___bool__(self)
+        return _dqn.VectorUnsignedInt___bool__(self)
 
     def __len__(self):
-        return _dqn.UnsignedIntVector___len__(self)
+        return _dqn.VectorUnsignedInt___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.UnsignedIntVector___getslice__(self, i, j)
+        return _dqn.VectorUnsignedInt___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.UnsignedIntVector___setslice__(self, *args)
+        return _dqn.VectorUnsignedInt___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.UnsignedIntVector___delslice__(self, i, j)
+        return _dqn.VectorUnsignedInt___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.UnsignedIntVector___delitem__(self, *args)
+        return _dqn.VectorUnsignedInt___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.UnsignedIntVector___getitem__(self, *args)
+        return _dqn.VectorUnsignedInt___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.UnsignedIntVector___setitem__(self, *args)
+        return _dqn.VectorUnsignedInt___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.UnsignedIntVector_pop(self)
+        return _dqn.VectorUnsignedInt_pop(self)
 
     def append(self, x):
-        return _dqn.UnsignedIntVector_append(self, x)
+        return _dqn.VectorUnsignedInt_append(self, x)
 
     def empty(self):
-        return _dqn.UnsignedIntVector_empty(self)
+        return _dqn.VectorUnsignedInt_empty(self)
 
     def size(self):
-        return _dqn.UnsignedIntVector_size(self)
+        return _dqn.VectorUnsignedInt_size(self)
 
     def swap(self, v):
-        return _dqn.UnsignedIntVector_swap(self, v)
+        return _dqn.VectorUnsignedInt_swap(self, v)
 
     def begin(self):
-        return _dqn.UnsignedIntVector_begin(self)
+        return _dqn.VectorUnsignedInt_begin(self)
 
     def end(self):
-        return _dqn.UnsignedIntVector_end(self)
+        return _dqn.VectorUnsignedInt_end(self)
 
     def rbegin(self):
-        return _dqn.UnsignedIntVector_rbegin(self)
+        return _dqn.VectorUnsignedInt_rbegin(self)
 
     def rend(self):
-        return _dqn.UnsignedIntVector_rend(self)
+        return _dqn.VectorUnsignedInt_rend(self)
 
     def clear(self):
-        return _dqn.UnsignedIntVector_clear(self)
+        return _dqn.VectorUnsignedInt_clear(self)
 
     def get_allocator(self):
-        return _dqn.UnsignedIntVector_get_allocator(self)
+        return _dqn.VectorUnsignedInt_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.UnsignedIntVector_pop_back(self)
+        return _dqn.VectorUnsignedInt_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.UnsignedIntVector_erase(self, *args)
+        return _dqn.VectorUnsignedInt_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_UnsignedIntVector(*args)
+        this = _dqn.new_VectorUnsignedInt(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.UnsignedIntVector_push_back(self, x)
+        return _dqn.VectorUnsignedInt_push_back(self, x)
 
     def front(self):
-        return _dqn.UnsignedIntVector_front(self)
+        return _dqn.VectorUnsignedInt_front(self)
 
     def back(self):
-        return _dqn.UnsignedIntVector_back(self)
+        return _dqn.VectorUnsignedInt_back(self)
 
     def assign(self, n, x):
-        return _dqn.UnsignedIntVector_assign(self, n, x)
+        return _dqn.VectorUnsignedInt_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.UnsignedIntVector_resize(self, *args)
+        return _dqn.VectorUnsignedInt_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.UnsignedIntVector_insert(self, *args)
+        return _dqn.VectorUnsignedInt_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.UnsignedIntVector_reserve(self, n)
+        return _dqn.VectorUnsignedInt_reserve(self, n)
 
     def capacity(self):
-        return _dqn.UnsignedIntVector_capacity(self)
-    __swig_destroy__ = _dqn.delete_UnsignedIntVector
+        return _dqn.VectorUnsignedInt_capacity(self)
+    __swig_destroy__ = _dqn.delete_VectorUnsignedInt
     __del__ = lambda self: None
-UnsignedIntVector_swigregister = _dqn.UnsignedIntVector_swigregister
-UnsignedIntVector_swigregister(UnsignedIntVector)
+VectorUnsignedInt_swigregister = _dqn.VectorUnsignedInt_swigregister
+VectorUnsignedInt_swigregister(VectorUnsignedInt)
 
-class FloatVector(_object):
+class VectorFloat(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, FloatVector, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, VectorFloat, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, FloatVector, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, VectorFloat, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.FloatVector_iterator(self)
+        return _dqn.VectorFloat_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.FloatVector___nonzero__(self)
+        return _dqn.VectorFloat___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.FloatVector___bool__(self)
+        return _dqn.VectorFloat___bool__(self)
 
     def __len__(self):
-        return _dqn.FloatVector___len__(self)
+        return _dqn.VectorFloat___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.FloatVector___getslice__(self, i, j)
+        return _dqn.VectorFloat___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.FloatVector___setslice__(self, *args)
+        return _dqn.VectorFloat___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.FloatVector___delslice__(self, i, j)
+        return _dqn.VectorFloat___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.FloatVector___delitem__(self, *args)
+        return _dqn.VectorFloat___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.FloatVector___getitem__(self, *args)
+        return _dqn.VectorFloat___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.FloatVector___setitem__(self, *args)
+        return _dqn.VectorFloat___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.FloatVector_pop(self)
+        return _dqn.VectorFloat_pop(self)
 
     def append(self, x):
-        return _dqn.FloatVector_append(self, x)
+        return _dqn.VectorFloat_append(self, x)
 
     def empty(self):
-        return _dqn.FloatVector_empty(self)
+        return _dqn.VectorFloat_empty(self)
 
     def size(self):
-        return _dqn.FloatVector_size(self)
+        return _dqn.VectorFloat_size(self)
 
     def swap(self, v):
-        return _dqn.FloatVector_swap(self, v)
+        return _dqn.VectorFloat_swap(self, v)
 
     def begin(self):
-        return _dqn.FloatVector_begin(self)
+        return _dqn.VectorFloat_begin(self)
 
     def end(self):
-        return _dqn.FloatVector_end(self)
+        return _dqn.VectorFloat_end(self)
 
     def rbegin(self):
-        return _dqn.FloatVector_rbegin(self)
+        return _dqn.VectorFloat_rbegin(self)
 
     def rend(self):
-        return _dqn.FloatVector_rend(self)
+        return _dqn.VectorFloat_rend(self)
 
     def clear(self):
-        return _dqn.FloatVector_clear(self)
+        return _dqn.VectorFloat_clear(self)
 
     def get_allocator(self):
-        return _dqn.FloatVector_get_allocator(self)
+        return _dqn.VectorFloat_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.FloatVector_pop_back(self)
+        return _dqn.VectorFloat_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.FloatVector_erase(self, *args)
+        return _dqn.VectorFloat_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_FloatVector(*args)
+        this = _dqn.new_VectorFloat(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.FloatVector_push_back(self, x)
+        return _dqn.VectorFloat_push_back(self, x)
 
     def front(self):
-        return _dqn.FloatVector_front(self)
+        return _dqn.VectorFloat_front(self)
 
     def back(self):
-        return _dqn.FloatVector_back(self)
+        return _dqn.VectorFloat_back(self)
 
     def assign(self, n, x):
-        return _dqn.FloatVector_assign(self, n, x)
+        return _dqn.VectorFloat_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.FloatVector_resize(self, *args)
+        return _dqn.VectorFloat_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.FloatVector_insert(self, *args)
+        return _dqn.VectorFloat_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.FloatVector_reserve(self, n)
+        return _dqn.VectorFloat_reserve(self, n)
 
     def capacity(self):
-        return _dqn.FloatVector_capacity(self)
-    __swig_destroy__ = _dqn.delete_FloatVector
+        return _dqn.VectorFloat_capacity(self)
+    __swig_destroy__ = _dqn.delete_VectorFloat
     __del__ = lambda self: None
-FloatVector_swigregister = _dqn.FloatVector_swigregister
-FloatVector_swigregister(FloatVector)
+VectorFloat_swigregister = _dqn.VectorFloat_swigregister
+VectorFloat_swigregister(VectorFloat)
 
-class DoubleVector(_object):
+class VectorDouble(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DoubleVector, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, VectorDouble, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, DoubleVector, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, VectorDouble, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.DoubleVector_iterator(self)
+        return _dqn.VectorDouble_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.DoubleVector___nonzero__(self)
+        return _dqn.VectorDouble___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.DoubleVector___bool__(self)
+        return _dqn.VectorDouble___bool__(self)
 
     def __len__(self):
-        return _dqn.DoubleVector___len__(self)
+        return _dqn.VectorDouble___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.DoubleVector___getslice__(self, i, j)
+        return _dqn.VectorDouble___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.DoubleVector___setslice__(self, *args)
+        return _dqn.VectorDouble___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.DoubleVector___delslice__(self, i, j)
+        return _dqn.VectorDouble___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.DoubleVector___delitem__(self, *args)
+        return _dqn.VectorDouble___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.DoubleVector___getitem__(self, *args)
+        return _dqn.VectorDouble___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.DoubleVector___setitem__(self, *args)
+        return _dqn.VectorDouble___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.DoubleVector_pop(self)
+        return _dqn.VectorDouble_pop(self)
 
     def append(self, x):
-        return _dqn.DoubleVector_append(self, x)
+        return _dqn.VectorDouble_append(self, x)
 
     def empty(self):
-        return _dqn.DoubleVector_empty(self)
+        return _dqn.VectorDouble_empty(self)
 
     def size(self):
-        return _dqn.DoubleVector_size(self)
+        return _dqn.VectorDouble_size(self)
 
     def swap(self, v):
-        return _dqn.DoubleVector_swap(self, v)
+        return _dqn.VectorDouble_swap(self, v)
 
     def begin(self):
-        return _dqn.DoubleVector_begin(self)
+        return _dqn.VectorDouble_begin(self)
 
     def end(self):
-        return _dqn.DoubleVector_end(self)
+        return _dqn.VectorDouble_end(self)
 
     def rbegin(self):
-        return _dqn.DoubleVector_rbegin(self)
+        return _dqn.VectorDouble_rbegin(self)
 
     def rend(self):
-        return _dqn.DoubleVector_rend(self)
+        return _dqn.VectorDouble_rend(self)
 
     def clear(self):
-        return _dqn.DoubleVector_clear(self)
+        return _dqn.VectorDouble_clear(self)
 
     def get_allocator(self):
-        return _dqn.DoubleVector_get_allocator(self)
+        return _dqn.VectorDouble_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.DoubleVector_pop_back(self)
+        return _dqn.VectorDouble_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.DoubleVector_erase(self, *args)
+        return _dqn.VectorDouble_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_DoubleVector(*args)
+        this = _dqn.new_VectorDouble(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.DoubleVector_push_back(self, x)
+        return _dqn.VectorDouble_push_back(self, x)
 
     def front(self):
-        return _dqn.DoubleVector_front(self)
+        return _dqn.VectorDouble_front(self)
 
     def back(self):
-        return _dqn.DoubleVector_back(self)
+        return _dqn.VectorDouble_back(self)
 
     def assign(self, n, x):
-        return _dqn.DoubleVector_assign(self, n, x)
+        return _dqn.VectorDouble_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.DoubleVector_resize(self, *args)
+        return _dqn.VectorDouble_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.DoubleVector_insert(self, *args)
+        return _dqn.VectorDouble_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.DoubleVector_reserve(self, n)
+        return _dqn.VectorDouble_reserve(self, n)
 
     def capacity(self):
-        return _dqn.DoubleVector_capacity(self)
-    __swig_destroy__ = _dqn.delete_DoubleVector
+        return _dqn.VectorDouble_capacity(self)
+    __swig_destroy__ = _dqn.delete_VectorDouble
     __del__ = lambda self: None
-DoubleVector_swigregister = _dqn.DoubleVector_swigregister
-DoubleVector_swigregister(DoubleVector)
+VectorDouble_swigregister = _dqn.VectorDouble_swigregister
+VectorDouble_swigregister(VectorDouble)
 
-class IntMatrix(_object):
+class MatrixInt(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, IntMatrix, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MatrixInt, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, IntMatrix, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, MatrixInt, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.IntMatrix_iterator(self)
+        return _dqn.MatrixInt_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.IntMatrix___nonzero__(self)
+        return _dqn.MatrixInt___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.IntMatrix___bool__(self)
+        return _dqn.MatrixInt___bool__(self)
 
     def __len__(self):
-        return _dqn.IntMatrix___len__(self)
+        return _dqn.MatrixInt___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.IntMatrix___getslice__(self, i, j)
+        return _dqn.MatrixInt___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.IntMatrix___setslice__(self, *args)
+        return _dqn.MatrixInt___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.IntMatrix___delslice__(self, i, j)
+        return _dqn.MatrixInt___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.IntMatrix___delitem__(self, *args)
+        return _dqn.MatrixInt___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.IntMatrix___getitem__(self, *args)
+        return _dqn.MatrixInt___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.IntMatrix___setitem__(self, *args)
+        return _dqn.MatrixInt___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.IntMatrix_pop(self)
+        return _dqn.MatrixInt_pop(self)
 
     def append(self, x):
-        return _dqn.IntMatrix_append(self, x)
+        return _dqn.MatrixInt_append(self, x)
 
     def empty(self):
-        return _dqn.IntMatrix_empty(self)
+        return _dqn.MatrixInt_empty(self)
 
     def size(self):
-        return _dqn.IntMatrix_size(self)
+        return _dqn.MatrixInt_size(self)
 
     def swap(self, v):
-        return _dqn.IntMatrix_swap(self, v)
+        return _dqn.MatrixInt_swap(self, v)
 
     def begin(self):
-        return _dqn.IntMatrix_begin(self)
+        return _dqn.MatrixInt_begin(self)
 
     def end(self):
-        return _dqn.IntMatrix_end(self)
+        return _dqn.MatrixInt_end(self)
 
     def rbegin(self):
-        return _dqn.IntMatrix_rbegin(self)
+        return _dqn.MatrixInt_rbegin(self)
 
     def rend(self):
-        return _dqn.IntMatrix_rend(self)
+        return _dqn.MatrixInt_rend(self)
 
     def clear(self):
-        return _dqn.IntMatrix_clear(self)
+        return _dqn.MatrixInt_clear(self)
 
     def get_allocator(self):
-        return _dqn.IntMatrix_get_allocator(self)
+        return _dqn.MatrixInt_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.IntMatrix_pop_back(self)
+        return _dqn.MatrixInt_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.IntMatrix_erase(self, *args)
+        return _dqn.MatrixInt_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_IntMatrix(*args)
+        this = _dqn.new_MatrixInt(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.IntMatrix_push_back(self, x)
+        return _dqn.MatrixInt_push_back(self, x)
 
     def front(self):
-        return _dqn.IntMatrix_front(self)
+        return _dqn.MatrixInt_front(self)
 
     def back(self):
-        return _dqn.IntMatrix_back(self)
+        return _dqn.MatrixInt_back(self)
 
     def assign(self, n, x):
-        return _dqn.IntMatrix_assign(self, n, x)
+        return _dqn.MatrixInt_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.IntMatrix_resize(self, *args)
+        return _dqn.MatrixInt_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.IntMatrix_insert(self, *args)
+        return _dqn.MatrixInt_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.IntMatrix_reserve(self, n)
+        return _dqn.MatrixInt_reserve(self, n)
 
     def capacity(self):
-        return _dqn.IntMatrix_capacity(self)
-    __swig_destroy__ = _dqn.delete_IntMatrix
+        return _dqn.MatrixInt_capacity(self)
+    __swig_destroy__ = _dqn.delete_MatrixInt
     __del__ = lambda self: None
-IntMatrix_swigregister = _dqn.IntMatrix_swigregister
-IntMatrix_swigregister(IntMatrix)
+MatrixInt_swigregister = _dqn.MatrixInt_swigregister
+MatrixInt_swigregister(MatrixInt)
 
-class UnsignedIntMatrix(_object):
+class MatrixUnsignedInt(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, UnsignedIntMatrix, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MatrixUnsignedInt, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, UnsignedIntMatrix, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, MatrixUnsignedInt, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.UnsignedIntMatrix_iterator(self)
+        return _dqn.MatrixUnsignedInt_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.UnsignedIntMatrix___nonzero__(self)
+        return _dqn.MatrixUnsignedInt___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.UnsignedIntMatrix___bool__(self)
+        return _dqn.MatrixUnsignedInt___bool__(self)
 
     def __len__(self):
-        return _dqn.UnsignedIntMatrix___len__(self)
+        return _dqn.MatrixUnsignedInt___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.UnsignedIntMatrix___getslice__(self, i, j)
+        return _dqn.MatrixUnsignedInt___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.UnsignedIntMatrix___setslice__(self, *args)
+        return _dqn.MatrixUnsignedInt___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.UnsignedIntMatrix___delslice__(self, i, j)
+        return _dqn.MatrixUnsignedInt___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.UnsignedIntMatrix___delitem__(self, *args)
+        return _dqn.MatrixUnsignedInt___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.UnsignedIntMatrix___getitem__(self, *args)
+        return _dqn.MatrixUnsignedInt___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.UnsignedIntMatrix___setitem__(self, *args)
+        return _dqn.MatrixUnsignedInt___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.UnsignedIntMatrix_pop(self)
+        return _dqn.MatrixUnsignedInt_pop(self)
 
     def append(self, x):
-        return _dqn.UnsignedIntMatrix_append(self, x)
+        return _dqn.MatrixUnsignedInt_append(self, x)
 
     def empty(self):
-        return _dqn.UnsignedIntMatrix_empty(self)
+        return _dqn.MatrixUnsignedInt_empty(self)
 
     def size(self):
-        return _dqn.UnsignedIntMatrix_size(self)
+        return _dqn.MatrixUnsignedInt_size(self)
 
     def swap(self, v):
-        return _dqn.UnsignedIntMatrix_swap(self, v)
+        return _dqn.MatrixUnsignedInt_swap(self, v)
 
     def begin(self):
-        return _dqn.UnsignedIntMatrix_begin(self)
+        return _dqn.MatrixUnsignedInt_begin(self)
 
     def end(self):
-        return _dqn.UnsignedIntMatrix_end(self)
+        return _dqn.MatrixUnsignedInt_end(self)
 
     def rbegin(self):
-        return _dqn.UnsignedIntMatrix_rbegin(self)
+        return _dqn.MatrixUnsignedInt_rbegin(self)
 
     def rend(self):
-        return _dqn.UnsignedIntMatrix_rend(self)
+        return _dqn.MatrixUnsignedInt_rend(self)
 
     def clear(self):
-        return _dqn.UnsignedIntMatrix_clear(self)
+        return _dqn.MatrixUnsignedInt_clear(self)
 
     def get_allocator(self):
-        return _dqn.UnsignedIntMatrix_get_allocator(self)
+        return _dqn.MatrixUnsignedInt_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.UnsignedIntMatrix_pop_back(self)
+        return _dqn.MatrixUnsignedInt_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.UnsignedIntMatrix_erase(self, *args)
+        return _dqn.MatrixUnsignedInt_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_UnsignedIntMatrix(*args)
+        this = _dqn.new_MatrixUnsignedInt(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.UnsignedIntMatrix_push_back(self, x)
+        return _dqn.MatrixUnsignedInt_push_back(self, x)
 
     def front(self):
-        return _dqn.UnsignedIntMatrix_front(self)
+        return _dqn.MatrixUnsignedInt_front(self)
 
     def back(self):
-        return _dqn.UnsignedIntMatrix_back(self)
+        return _dqn.MatrixUnsignedInt_back(self)
 
     def assign(self, n, x):
-        return _dqn.UnsignedIntMatrix_assign(self, n, x)
+        return _dqn.MatrixUnsignedInt_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.UnsignedIntMatrix_resize(self, *args)
+        return _dqn.MatrixUnsignedInt_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.UnsignedIntMatrix_insert(self, *args)
+        return _dqn.MatrixUnsignedInt_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.UnsignedIntMatrix_reserve(self, n)
+        return _dqn.MatrixUnsignedInt_reserve(self, n)
 
     def capacity(self):
-        return _dqn.UnsignedIntMatrix_capacity(self)
-    __swig_destroy__ = _dqn.delete_UnsignedIntMatrix
+        return _dqn.MatrixUnsignedInt_capacity(self)
+    __swig_destroy__ = _dqn.delete_MatrixUnsignedInt
     __del__ = lambda self: None
-UnsignedIntMatrix_swigregister = _dqn.UnsignedIntMatrix_swigregister
-UnsignedIntMatrix_swigregister(UnsignedIntMatrix)
+MatrixUnsignedInt_swigregister = _dqn.MatrixUnsignedInt_swigregister
+MatrixUnsignedInt_swigregister(MatrixUnsignedInt)
 
-class FloatMatrix(_object):
+class MatrixFloat(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, FloatMatrix, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MatrixFloat, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, FloatMatrix, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, MatrixFloat, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.FloatMatrix_iterator(self)
+        return _dqn.MatrixFloat_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.FloatMatrix___nonzero__(self)
+        return _dqn.MatrixFloat___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.FloatMatrix___bool__(self)
+        return _dqn.MatrixFloat___bool__(self)
 
     def __len__(self):
-        return _dqn.FloatMatrix___len__(self)
+        return _dqn.MatrixFloat___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.FloatMatrix___getslice__(self, i, j)
+        return _dqn.MatrixFloat___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.FloatMatrix___setslice__(self, *args)
+        return _dqn.MatrixFloat___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.FloatMatrix___delslice__(self, i, j)
+        return _dqn.MatrixFloat___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.FloatMatrix___delitem__(self, *args)
+        return _dqn.MatrixFloat___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.FloatMatrix___getitem__(self, *args)
+        return _dqn.MatrixFloat___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.FloatMatrix___setitem__(self, *args)
+        return _dqn.MatrixFloat___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.FloatMatrix_pop(self)
+        return _dqn.MatrixFloat_pop(self)
 
     def append(self, x):
-        return _dqn.FloatMatrix_append(self, x)
+        return _dqn.MatrixFloat_append(self, x)
 
     def empty(self):
-        return _dqn.FloatMatrix_empty(self)
+        return _dqn.MatrixFloat_empty(self)
 
     def size(self):
-        return _dqn.FloatMatrix_size(self)
+        return _dqn.MatrixFloat_size(self)
 
     def swap(self, v):
-        return _dqn.FloatMatrix_swap(self, v)
+        return _dqn.MatrixFloat_swap(self, v)
 
     def begin(self):
-        return _dqn.FloatMatrix_begin(self)
+        return _dqn.MatrixFloat_begin(self)
 
     def end(self):
-        return _dqn.FloatMatrix_end(self)
+        return _dqn.MatrixFloat_end(self)
 
     def rbegin(self):
-        return _dqn.FloatMatrix_rbegin(self)
+        return _dqn.MatrixFloat_rbegin(self)
 
     def rend(self):
-        return _dqn.FloatMatrix_rend(self)
+        return _dqn.MatrixFloat_rend(self)
 
     def clear(self):
-        return _dqn.FloatMatrix_clear(self)
+        return _dqn.MatrixFloat_clear(self)
 
     def get_allocator(self):
-        return _dqn.FloatMatrix_get_allocator(self)
+        return _dqn.MatrixFloat_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.FloatMatrix_pop_back(self)
+        return _dqn.MatrixFloat_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.FloatMatrix_erase(self, *args)
+        return _dqn.MatrixFloat_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_FloatMatrix(*args)
+        this = _dqn.new_MatrixFloat(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.FloatMatrix_push_back(self, x)
+        return _dqn.MatrixFloat_push_back(self, x)
 
     def front(self):
-        return _dqn.FloatMatrix_front(self)
+        return _dqn.MatrixFloat_front(self)
 
     def back(self):
-        return _dqn.FloatMatrix_back(self)
+        return _dqn.MatrixFloat_back(self)
 
     def assign(self, n, x):
-        return _dqn.FloatMatrix_assign(self, n, x)
+        return _dqn.MatrixFloat_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.FloatMatrix_resize(self, *args)
+        return _dqn.MatrixFloat_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.FloatMatrix_insert(self, *args)
+        return _dqn.MatrixFloat_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.FloatMatrix_reserve(self, n)
+        return _dqn.MatrixFloat_reserve(self, n)
 
     def capacity(self):
-        return _dqn.FloatMatrix_capacity(self)
-    __swig_destroy__ = _dqn.delete_FloatMatrix
+        return _dqn.MatrixFloat_capacity(self)
+    __swig_destroy__ = _dqn.delete_MatrixFloat
     __del__ = lambda self: None
-FloatMatrix_swigregister = _dqn.FloatMatrix_swigregister
-FloatMatrix_swigregister(FloatMatrix)
+MatrixFloat_swigregister = _dqn.MatrixFloat_swigregister
+MatrixFloat_swigregister(MatrixFloat)
 
-class DoubleMatrix(_object):
+class MatrixDouble(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, DoubleMatrix, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MatrixDouble, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, DoubleMatrix, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, MatrixDouble, name)
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _dqn.DoubleMatrix_iterator(self)
+        return _dqn.MatrixDouble_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _dqn.DoubleMatrix___nonzero__(self)
+        return _dqn.MatrixDouble___nonzero__(self)
 
     def __bool__(self):
-        return _dqn.DoubleMatrix___bool__(self)
+        return _dqn.MatrixDouble___bool__(self)
 
     def __len__(self):
-        return _dqn.DoubleMatrix___len__(self)
+        return _dqn.MatrixDouble___len__(self)
 
     def __getslice__(self, i, j):
-        return _dqn.DoubleMatrix___getslice__(self, i, j)
+        return _dqn.MatrixDouble___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _dqn.DoubleMatrix___setslice__(self, *args)
+        return _dqn.MatrixDouble___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _dqn.DoubleMatrix___delslice__(self, i, j)
+        return _dqn.MatrixDouble___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _dqn.DoubleMatrix___delitem__(self, *args)
+        return _dqn.MatrixDouble___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _dqn.DoubleMatrix___getitem__(self, *args)
+        return _dqn.MatrixDouble___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _dqn.DoubleMatrix___setitem__(self, *args)
+        return _dqn.MatrixDouble___setitem__(self, *args)
 
     def pop(self):
-        return _dqn.DoubleMatrix_pop(self)
+        return _dqn.MatrixDouble_pop(self)
 
     def append(self, x):
-        return _dqn.DoubleMatrix_append(self, x)
+        return _dqn.MatrixDouble_append(self, x)
 
     def empty(self):
-        return _dqn.DoubleMatrix_empty(self)
+        return _dqn.MatrixDouble_empty(self)
 
     def size(self):
-        return _dqn.DoubleMatrix_size(self)
+        return _dqn.MatrixDouble_size(self)
 
     def swap(self, v):
-        return _dqn.DoubleMatrix_swap(self, v)
+        return _dqn.MatrixDouble_swap(self, v)
 
     def begin(self):
-        return _dqn.DoubleMatrix_begin(self)
+        return _dqn.MatrixDouble_begin(self)
 
     def end(self):
-        return _dqn.DoubleMatrix_end(self)
+        return _dqn.MatrixDouble_end(self)
 
     def rbegin(self):
-        return _dqn.DoubleMatrix_rbegin(self)
+        return _dqn.MatrixDouble_rbegin(self)
 
     def rend(self):
-        return _dqn.DoubleMatrix_rend(self)
+        return _dqn.MatrixDouble_rend(self)
 
     def clear(self):
-        return _dqn.DoubleMatrix_clear(self)
+        return _dqn.MatrixDouble_clear(self)
 
     def get_allocator(self):
-        return _dqn.DoubleMatrix_get_allocator(self)
+        return _dqn.MatrixDouble_get_allocator(self)
 
     def pop_back(self):
-        return _dqn.DoubleMatrix_pop_back(self)
+        return _dqn.MatrixDouble_pop_back(self)
 
     def erase(self, *args):
-        return _dqn.DoubleMatrix_erase(self, *args)
+        return _dqn.MatrixDouble_erase(self, *args)
 
     def __init__(self, *args):
-        this = _dqn.new_DoubleMatrix(*args)
+        this = _dqn.new_MatrixDouble(*args)
         try:
             self.this.append(this)
         except __builtin__.Exception:
             self.this = this
 
     def push_back(self, x):
-        return _dqn.DoubleMatrix_push_back(self, x)
+        return _dqn.MatrixDouble_push_back(self, x)
 
     def front(self):
-        return _dqn.DoubleMatrix_front(self)
+        return _dqn.MatrixDouble_front(self)
 
     def back(self):
-        return _dqn.DoubleMatrix_back(self)
+        return _dqn.MatrixDouble_back(self)
 
     def assign(self, n, x):
-        return _dqn.DoubleMatrix_assign(self, n, x)
+        return _dqn.MatrixDouble_assign(self, n, x)
 
     def resize(self, *args):
-        return _dqn.DoubleMatrix_resize(self, *args)
+        return _dqn.MatrixDouble_resize(self, *args)
 
     def insert(self, *args):
-        return _dqn.DoubleMatrix_insert(self, *args)
+        return _dqn.MatrixDouble_insert(self, *args)
 
     def reserve(self, n):
-        return _dqn.DoubleMatrix_reserve(self, n)
+        return _dqn.MatrixDouble_reserve(self, n)
 
     def capacity(self):
-        return _dqn.DoubleMatrix_capacity(self)
-    __swig_destroy__ = _dqn.delete_DoubleMatrix
+        return _dqn.MatrixDouble_capacity(self)
+    __swig_destroy__ = _dqn.delete_MatrixDouble
     __del__ = lambda self: None
-DoubleMatrix_swigregister = _dqn.DoubleMatrix_swigregister
-DoubleMatrix_swigregister(DoubleMatrix)
+MatrixDouble_swigregister = _dqn.MatrixDouble_swigregister
+MatrixDouble_swigregister(MatrixDouble)
 
 class sGeometry(_object):
     __swig_setmethods__ = {}
@@ -1694,30 +1694,9 @@ RandomDistribution_swigregister = _dqn.RandomDistribution_swigregister
 RandomDistribution_swigregister(RandomDistribution)
 
 
-def DQNTest():
-    return _dqn.DQNTest()
-DQNTest = _dqn.DQNTest
-class MyString(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MyString, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, MyString, name)
-    __repr__ = _swig_repr
-
-    def info(self):
-        return _dqn.MyString_info(self)
-
-    def __init__(self):
-        this = _dqn.new_MyString()
-        try:
-            self.this.append(this)
-        except __builtin__.Exception:
-            self.this = this
-    __swig_destroy__ = _dqn.delete_MyString
-    __del__ = lambda self: None
-MyString_swigregister = _dqn.MyString_swigregister
-MyString_swigregister(MyString)
-
+def String():
+    return _dqn.String()
+String = _dqn.String
 # This file is compatible with both classic and new-style classes.
 
 

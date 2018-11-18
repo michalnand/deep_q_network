@@ -5,6 +5,7 @@
 #include <random_distribution.h>
 
 DQNP::DQNP()
+     :DQNInterface()
 {
   cnn = nullptr;
 }
@@ -31,6 +32,20 @@ DQNP::DQNP( std::string json_config_file_name,
   cnn = nullptr;
   JsonConfig json_config(json_config_file_name);
   init(json_config.result, gamma,  state_geometry, actions_count, experience_buffer_size);
+}
+
+DQNP::DQNP( std::string json_config_file_name,
+          sGeometry state_geometry,
+          unsigned int actions_count)
+     :DQNInterface()
+{
+  cnn = nullptr;
+  JsonConfig json_config(json_config_file_name);
+
+  float gamma = json_config.result["gamma"].asFloat();
+  unsigned int experience_buffer_size = json_config.result["experience_buffer_size"].asInt();
+
+  init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size);
 }
 
 

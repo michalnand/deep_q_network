@@ -7,11 +7,7 @@ state_geometry.h        = 8
 state_geometry.d        = 3
 
 actions_count           = 5
-experience_buffer_size  = 1024
 
-
-log = dqn.Log()
-
-nn = dqn.DQNInterface(state_geometry, actions_count, experience_buffer_size)
+nn = dqn.DQN("dqn_config.json", state_geometry, actions_count)
 
 nn._print()

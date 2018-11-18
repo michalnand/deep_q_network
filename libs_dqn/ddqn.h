@@ -26,7 +26,11 @@ class DDQN: public DQNInterface
           sGeometry state_geometry,
           unsigned int actions_count,
           unsigned int experience_buffer_size);
-          
+
+    DDQN( std::string json_config_file_name,
+          sGeometry state_geometry,
+          unsigned int actions_count);
+
     virtual ~DDQN();
 
     void init(  Json::Value &json_config,

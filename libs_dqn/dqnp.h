@@ -25,6 +25,10 @@ class DQNP: public DQNInterface
           unsigned int actions_count,
           unsigned int experience_buffer_size);
 
+    DQNP( std::string json_config_file_name,
+          sGeometry state_geometry,
+          unsigned int actions_count); 
+
     virtual ~DQNP();
 
     void init(  Json::Value &json_config,

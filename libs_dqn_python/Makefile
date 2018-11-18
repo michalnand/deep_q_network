@@ -20,10 +20,10 @@ OBJCOPY = objcopy
 OBJDUMP = objdump
 SIZE = size
 ARCHIVE = ar
+ 
 
-
-PYTHONI = $(shell python3.0-config --cflags)
-PYTHONL = $(shell python3.0-config --ldflags)
+PYTHONI = $(shell python3-config --cflags)
+PYTHONL = $(shell python3-config --ldflags)
 
 CFLAGS+= -O2 -Os -fPIC -s -Wall -Wextra -pedantic -std=c++17 $(INC)
 

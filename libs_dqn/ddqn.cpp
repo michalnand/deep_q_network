@@ -34,6 +34,21 @@ DDQN::DDQN( std::string json_config_file_name,
 }
 
 
+DDQN::DDQN( std::string json_config_file_name,
+          sGeometry state_geometry,
+          unsigned int actions_count)
+     :DQNInterface()
+{
+  cnn = nullptr;
+  JsonConfig json_config(json_config_file_name);
+
+  float gamma = json_config.result["gamma"].asFloat();
+  unsigned int experience_buffer_size = json_config.result["experience_buffer_size"].asInt();
+
+  init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size);
+}
+
+
 
 DDQN::~DDQN()
 {

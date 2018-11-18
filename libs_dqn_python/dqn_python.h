@@ -12,16 +12,17 @@
 
 #include "dqn_python.h"
 
-void DQNTest();
 
-
-class MyString: public std::string
+/*
+struct my_struct
 {
-  public:
-    void info()
-    {
-
-    }
+  std::string foo;
 };
+*/
+
+std::string String()
+{
+  return std::string();
+}
 
 #endif
