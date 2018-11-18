@@ -63,6 +63,9 @@ class DQNInterface
     void save(std::string file_name_prefix);
     void load_weights(std::string file_name_prefix);
 
+    virtual void print();
+
+
   protected:
     float saturate(float value, float min, float max);
     unsigned int argmax(std::vector<float> &v);

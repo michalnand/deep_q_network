@@ -1,5 +1,5 @@
 #include "dqn_interface.h"
-
+#include <iostream>
 
 DQNInterface::DQNInterface()
 {
@@ -126,6 +126,29 @@ bool DQNInterface::is_full()
 void DQNInterface::test()
 {
 
+}
+
+void DQNInterface::print()
+{
+  std::cout << "state_geometry = [";
+  std::cout << state_geometry.w << " ";
+  std::cout << state_geometry.h << " ";
+  std::cout << state_geometry.d << "]\n";
+
+  std::cout << "actions_count = " << actions_count << "\n";
+  std::cout << "experience_buffer_size = " << experience_buffer_size << "\n";
+
+  for (unsigned int j = 0; j < current_ptr; j++)
+  {
+    std::cout << "[";
+    std::cout << j << " ";
+    std::cout << experience_buffer[j].action << " ";
+    std::cout << experience_buffer[j].q_values[experience_buffer[j].action] << " ";
+    std::cout << experience_buffer[j].is_final << " ";
+    std::cout << "]\n";
+  }
+
+  std::cout << "\n\n";
 }
 
 DQNCompare& DQNInterface::get_compare_result()

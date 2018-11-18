@@ -39,6 +39,6 @@ all: $(OBJS) $(OBJS_CUDA)
 	$(CUDA_PATH)$(CU) -c $(CUDAFLAGS) $< -o $@
 
 clean:
-	rm $(OBJS) -rf
-	rm $(OBJS_CUDA) -rf
-	rm $(OUTPUT_NAME).* -rf
+	rm $(OBJS) -f
+	rm $(OBJS_CUDA) -f
+	rm $(OUTPUT_NAME).* -f

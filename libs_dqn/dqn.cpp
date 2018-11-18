@@ -17,6 +17,18 @@ DQN::DQN( Json::Value &json_config,
   init(json_config, gamma,  state_geometry, actions_count, experience_buffer_size);
 }
 
+DQN::DQN( std::string json_config_file_name,
+          float gamma,
+          sGeometry state_geometry,
+          unsigned int actions_count,
+          unsigned int experience_buffer_size)
+    :DQNInterface(state_geometry, actions_count, experience_buffer_size)
+{
+  cnn = nullptr;
+  JsonConfig json_config(json_config_file_name);
+  init(json_config.result, gamma,  state_geometry, actions_count, experience_buffer_size);
+}
+
 
 
 DQN::~DQN()
@@ -144,21 +156,4 @@ bool DQN::is_full()
     return true;
 
   return false;
-}
-
-
-
-void DQN::print()
-{
-  for (unsigned int j = 0; j < current_ptr; j++)
-  {
-    std::cout << "[";
-    std::cout << j << " ";
-    std::cout << experience_buffer[j].action << " ";
-    std::cout << experience_buffer[j].q_values[experience_buffer[j].action] << " ";
-    std::cout << experience_buffer[j].is_final << " ";
-    std::cout << "]\n";
-  }
-
-  std::cout << "\n\n";
 }

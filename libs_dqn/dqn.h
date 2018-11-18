@@ -17,6 +17,12 @@ class DQN: public DQNInterface
           unsigned int actions_count,
           unsigned int experience_buffer_size);
 
+    DQN(  std::string json_config_file_name,
+          float gamma,
+          sGeometry state_geometry,
+          unsigned int actions_count,
+          unsigned int experience_buffer_size);
+
     virtual ~DQN();
 
     void init(  Json::Value &json_config,
@@ -34,8 +40,6 @@ class DQN: public DQNInterface
     void new_batch();
 
     bool is_full();
-
-    void print();
 };
 
 #endif

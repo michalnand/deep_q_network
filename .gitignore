@@ -5,6 +5,8 @@
 *.co
 *.oc
 *.obj
+*.oswig
+*.pyc
 
 # Precompiled Headers
 *.gch
