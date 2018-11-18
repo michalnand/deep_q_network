@@ -22,8 +22,8 @@ SIZE = size
 ARCHIVE = ar
 
 
-PYTHONI = $(shell python2.7-config --cflags)
-PYTHONL = $(shell python2.7-config --ldflags)
+PYTHONI = $(shell python3.0-config --cflags)
+PYTHONL = $(shell python3.0-config --ldflags)
 
 CFLAGS+= -O2 -Os -fPIC -s -Wall -Wextra -pedantic -std=c++17 $(INC)
 
@@ -47,7 +47,6 @@ OBJS_EXTERN+= $(shell find ~/libs/rysy/libs_nn -name '*.oc')
 
 
 all: $(OBJS) $(OBJS_CUDA) $(OBJS_SWIG)
-	 $(ARCHIVE) rc $(OUTPUT_NAME).a $(OBJS) $(OBJS_CUDA)
 	 $(CC) -shared -fPIC $(PYTHONL) -o _$(OUTPUT_NAME).so $(OBJS) $(OBJS_EXTERN) $(OBJS_SWIG) $(LDFLAGS)
 
 
@@ -69,7 +68,6 @@ clean:
 	rm $(OBJS) -f
 	rm $(OBJS_CSWIG) -f
 	rm $(OBJS_SWIG) -f
-	rm $(OUTPUT_NAME).a -f
 	rm _$(OUTPUT_NAME).so -f
 	rm $(OUTPUT_NAME).py -f
 	rm $(OUTPUT_NAME).pyc -f

@@ -4,6 +4,8 @@
 %include <std_string.i>
 %include <std_vector.i>
 
+using std::string;
+
 %template(CharVector) std::vector<char>;
 %template(UnsignedCharVector) std::vector<unsigned char>;
 %template(IntVector) std::vector<int>;
@@ -19,7 +21,12 @@
 
 
 %{
+#include <vector>
+#include <string>
+
 #include <nn_struct.h>
+#include <log.h>
+
 
 #include <dqn_interface.h>
 
@@ -34,6 +41,7 @@
 %}
 
 %include <nn_struct.h>
+%include <log.h>
 
 %include <dqn_interface.h>
 %include <dqn.h>

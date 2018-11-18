@@ -1373,6 +1373,33 @@ class sHyperparameters(_object):
 sHyperparameters_swigregister = _dqn.sHyperparameters_swigregister
 sHyperparameters_swigregister(sHyperparameters)
 
+class Log(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Log, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Log, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _dqn.new_Log(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _dqn.delete_Log
+    __del__ = lambda self: None
+
+    def set_output_file_name(self, file_name):
+        return _dqn.Log_set_output_file_name(self, file_name)
+
+    def put_string(self, str):
+        return _dqn.Log_put_string(self, str)
+
+    def __lshift__(self, *args):
+        return _dqn.Log___lshift__(self, *args)
+Log_swigregister = _dqn.Log_swigregister
+Log_swigregister(Log)
+
 class sDQNExperienceBuffer(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, sDQNExperienceBuffer, name, value)
@@ -1670,6 +1697,27 @@ RandomDistribution_swigregister(RandomDistribution)
 def DQNTest():
     return _dqn.DQNTest()
 DQNTest = _dqn.DQNTest
+class MyString(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MyString, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MyString, name)
+    __repr__ = _swig_repr
+
+    def info(self):
+        return _dqn.MyString_info(self)
+
+    def __init__(self):
+        this = _dqn.new_MyString()
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _dqn.delete_MyString
+    __del__ = lambda self: None
+MyString_swigregister = _dqn.MyString_swigregister
+MyString_swigregister(MyString)
+
 # This file is compatible with both classic and new-style classes.
 
 
