@@ -11,3 +11,5 @@ actions_count           = 5
 nn = dqn.DQN("dqn_config.json", state_geometry, actions_count)
 
 nn._print()
+
+print("program done")
