@@ -9,8 +9,6 @@ class DQNP: public DQNInterface
   protected:
     std::vector<float> priority;
 
-    float gamma;
-
   public:
     DQNP();
     DQNP(  Json::Value &json_config,
@@ -27,7 +25,10 @@ class DQNP: public DQNInterface
 
     DQNP( std::string json_config_file_name,
           sGeometry state_geometry,
-          unsigned int actions_count); 
+          unsigned int actions_count);
+
+    DQNP( std::string json_config_file_name);
+
 
     virtual ~DQNP();
 

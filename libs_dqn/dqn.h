@@ -6,9 +6,6 @@
 
 class DQN: public DQNInterface
 {
-  protected:
-    float gamma;
-
   public:
     DQN();
     DQN(  Json::Value &json_config,
@@ -25,7 +22,9 @@ class DQN: public DQNInterface
 
     DQN( std::string json_config_file_name,
          sGeometry state_geometry,
-         unsigned int actions_count); 
+         unsigned int actions_count);
+
+    DQN( std::string json_config_file_name);
 
     virtual ~DQN();
 

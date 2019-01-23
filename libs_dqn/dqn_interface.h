@@ -25,6 +25,8 @@ class DQNInterface
     unsigned int experience_buffer_size;
     unsigned int current_ptr;
 
+    float gamma;
+
     std::vector<sDQNExperienceBuffer> experience_buffer;
 
 
@@ -60,7 +62,7 @@ class DQNInterface
     DQNCompare& get_compare_result();
 
 
-    void save(std::string file_name_prefix);
+    virtual void save(std::string file_name_prefix);
     void load_weights(std::string file_name_prefix);
 
     virtual void print();

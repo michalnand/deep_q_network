@@ -3,12 +3,12 @@
 
 DQNInterface::DQNInterface()
 {
-
+    gamma = 0.0;
 }
 
 DQNInterface::DQNInterface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size)
 {
-  init_interface(state_geometry, actions_count, experience_buffer_size);
+    init_interface(state_geometry, actions_count, experience_buffer_size);
 }
 
 DQNInterface::~DQNInterface()
@@ -16,12 +16,12 @@ DQNInterface::~DQNInterface()
 
 }
 
-
 void DQNInterface::init_interface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size)
 {
-  this->state_geometry = state_geometry;
-  this->actions_count = actions_count;
-  this->experience_buffer_size = experience_buffer_size;
+        this->gamma = 0.0;
+        this->state_geometry = state_geometry;
+        this->actions_count = actions_count;
+        this->experience_buffer_size = experience_buffer_size;
 
   q_values.resize(actions_count);
 
@@ -159,6 +159,27 @@ DQNCompare& DQNInterface::get_compare_result()
 void DQNInterface::save(std::string file_name_prefix)
 {
   cnn->save(file_name_prefix);
+
+  JsonConfig json(file_name_prefix + "cnn_config.json");
+
+  Json::Value json_tmp;
+
+  json_tmp["network_architecture"] = json.result;
+
+  json_tmp["gamma"] = gamma;
+  json_tmp["experience_buffer_size"] = experience_buffer_size;
+
+  json_tmp["state_geometry"][0] = state_geometry.w;
+  json_tmp["state_geometry"][1] = state_geometry.h;
+  json_tmp["state_geometry"][2] = state_geometry.d;
+
+  json_tmp["state_size"] = state_size;
+  json_tmp["actions_count"] = actions_count;
+ 
+  JsonConfig json_result;
+  json_result.result = json_tmp;
+
+  json_result.save(file_name_prefix + "cnn_config.json");
 }
 
 void DQNInterface::load_weights(std::string file_name_prefix)

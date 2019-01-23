@@ -9,8 +9,6 @@ class DDQN: public DQNInterface
   protected:
     std::vector<float> priority;
 
-    float gamma;
-
     std::vector<float> nn_output;
 
   public:
@@ -30,6 +28,8 @@ class DDQN: public DQNInterface
     DDQN( std::string json_config_file_name,
           sGeometry state_geometry,
           unsigned int actions_count);
+
+    DDQN( std::string json_config_file_name);
 
     virtual ~DDQN();
 
