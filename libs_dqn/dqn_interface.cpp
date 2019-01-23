@@ -160,6 +160,7 @@ void DQNInterface::save(std::string file_name_prefix)
 {
   cnn->save(file_name_prefix);
 
+/*
   JsonConfig json(file_name_prefix + "cnn_config.json");
 
   Json::Value json_tmp;
@@ -180,6 +181,7 @@ void DQNInterface::save(std::string file_name_prefix)
   json_result.result = json_tmp;
 
   json_result.save(file_name_prefix + "cnn_config.json");
+*/
 }
 
 void DQNInterface::load_weights(std::string file_name_prefix)
