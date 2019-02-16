@@ -1454,8 +1454,8 @@ class DQNInterface(_object):
     __swig_destroy__ = _dqn.delete_DQNInterface
     __del__ = lambda self: None
 
-    def init_interface(self, state_geometry, actions_count, experience_buffer_size):
-        return _dqn.DQNInterface_init_interface(self, state_geometry, actions_count, experience_buffer_size)
+    def init_interface(self, state_geometry, actions_count, experience_buffer_size, normalise):
+        return _dqn.DQNInterface_init_interface(self, state_geometry, actions_count, experience_buffer_size, normalise)
 
     def buffer_clear(self):
         return _dqn.DQNInterface_buffer_clear(self)
@@ -1521,8 +1521,8 @@ class DQN(DQNInterface):
     __swig_destroy__ = _dqn.delete_DQN
     __del__ = lambda self: None
 
-    def init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size):
-        return _dqn.DQN_init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size)
+    def init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size, normalise):
+        return _dqn.DQN_init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size, normalise)
 
     def compute_q_values(self, state):
         return _dqn.DQN_compute_q_values(self, state)
@@ -1561,8 +1561,8 @@ class DDQN(DQNInterface):
     __swig_destroy__ = _dqn.delete_DDQN
     __del__ = lambda self: None
 
-    def init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size):
-        return _dqn.DDQN_init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size)
+    def init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size, normalise):
+        return _dqn.DDQN_init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size, normalise)
 
     def compute_q_values(self, state):
         return _dqn.DDQN_compute_q_values(self, state)
@@ -1649,8 +1649,8 @@ class DQNP(DQNInterface):
     __swig_destroy__ = _dqn.delete_DQNP
     __del__ = lambda self: None
 
-    def init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size):
-        return _dqn.DQNP_init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size)
+    def init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size, normalise):
+        return _dqn.DQNP_init(self, json_config, gamma, state_geometry, actions_count, experience_buffer_size, normalise)
 
     def compute_q_values(self, state):
         return _dqn.DQNP_compute_q_values(self, state)

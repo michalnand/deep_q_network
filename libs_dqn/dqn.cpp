@@ -11,23 +11,25 @@ DQN::DQN( Json::Value &json_config,
           float gamma,
           sGeometry state_geometry,
           unsigned int actions_count,
-          unsigned int experience_buffer_size)
-    :DQNInterface(state_geometry, actions_count, experience_buffer_size)
+          unsigned int experience_buffer_size,
+          bool normalise)
+    :DQNInterface(state_geometry, actions_count, experience_buffer_size, normalise)
 {
   cnn = nullptr;
-  init(json_config, gamma,  state_geometry, actions_count, experience_buffer_size);
+  init(json_config, gamma,  state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 DQN::DQN( std::string json_config_file_name,
           float gamma,
           sGeometry state_geometry,
           unsigned int actions_count,
-          unsigned int experience_buffer_size)
-    :DQNInterface(state_geometry, actions_count, experience_buffer_size)
+          unsigned int experience_buffer_size,
+          bool normalise)
+    :DQNInterface(state_geometry, actions_count, experience_buffer_size, normalise)
 {
   cnn = nullptr;
   JsonConfig json_config(json_config_file_name);
-  init(json_config.result, gamma,  state_geometry, actions_count, experience_buffer_size);
+  init(json_config.result, gamma,  state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 DQN::DQN( std::string json_config_file_name,
@@ -40,8 +42,9 @@ DQN::DQN( std::string json_config_file_name,
 
   float gamma = json_config.result["gamma"].asFloat();
   unsigned int experience_buffer_size = json_config.result["experience_buffer_size"].asInt();
+  bool normalise = json_config.result["normalise"].asBool();
 
-  init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size);
+  init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 DQN::DQN(std::string json_config_file_name)
@@ -54,13 +57,14 @@ DQN::DQN(std::string json_config_file_name)
 
     unsigned int experience_buffer_size = json_config.result["experience_buffer_size"].asInt();
     unsigned int actions_count = json_config.result["actions_count"].asInt();
+    bool normalise = json_config.result["normalise"].asBool();
 
     sGeometry state_geometry;
     state_geometry.w = json_config.result["state_geometry"][0].asInt();
     state_geometry.h = json_config.result["state_geometry"][1].asInt();
     state_geometry.h = json_config.result["state_geometry"][2].asInt();
 
-    init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size);
+    init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 DQN::~DQN()
@@ -77,9 +81,10 @@ void DQN::init(   Json::Value &json_config,
                   float gamma,
                   sGeometry state_geometry,
                   unsigned int actions_count,
-                  unsigned int experience_buffer_size)
+                  unsigned int experience_buffer_size,
+                  bool normalise)
 {
-    init_interface(state_geometry, actions_count, experience_buffer_size);
+    init_interface(state_geometry, actions_count, experience_buffer_size, normalise);
 
     if (cnn != nullptr)
     {
@@ -109,53 +114,51 @@ void DQN::compute_q_values(std::vector<float> &state)
 
 void DQN::learn()
 {
-  int ptr = current_ptr-1;
+    int ptr = current_ptr-1;
 
-  unsigned int state            = ptr;
-  unsigned int action           = experience_buffer[state].action;
-  float reward                  = experience_buffer[state].reward;
-
-  experience_buffer[state].q_values[action] = reward;
-
-  ptr--;
-
-  float limit = 0.999;
-
-  while (ptr >= 0)
-  {
     unsigned int state            = ptr;
-    unsigned int state_next       = ptr + 1;
     unsigned int action           = experience_buffer[state].action;
-    unsigned int best_action_next = argmax(experience_buffer[state_next].q_values);
     float reward                  = experience_buffer[state].reward;
 
-    float gamma_ = gamma;
-    if (experience_buffer[state].is_final)
-      gamma_ = 0.0;
-
-    float q = reward + gamma_*experience_buffer[state_next].q_values[best_action_next];
-
-
-    experience_buffer[state].q_values[action] = q;
-
-    for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
-      experience_buffer[state].q_values[i] = saturate(experience_buffer[state].q_values[i], -limit, limit);
+    experience_buffer[state].q_values[action] = reward;
 
     ptr--;
-  }
 
-  cnn->set_training_mode();
+    while (ptr >= 0)
+    {
+        unsigned int state            = ptr;
+        unsigned int state_next       = ptr + 1;
+        unsigned int action           = experience_buffer[state].action;
+        unsigned int best_action_next = argmax(experience_buffer[state_next].q_values);
+        float reward                  = experience_buffer[state].reward;
 
-  for (unsigned int i = 0; i < current_ptr; i++)
-  {
-    cnn->train(experience_buffer[i].q_values, experience_buffer[i].state);
-  }
+        float gamma_ = gamma;
+        if (experience_buffer[state].is_final)
+            gamma_ = 0.0;
 
-  cnn->unset_training_mode();
+        float q = reward + gamma_*experience_buffer[state_next].q_values[best_action_next];
 
-  test();
+        experience_buffer[state].q_values[action] = q;
+        ptr--;
+    }
 
-  new_batch();
+    if (normalise)
+        experience_buffer_normalise();
+
+    experience_buffer_clip();
+
+    cnn->set_training_mode();
+
+    for (unsigned int i = 0; i < current_ptr; i++)
+    {
+        cnn->train(experience_buffer[i].q_values, experience_buffer[i].state);
+    }
+
+    cnn->unset_training_mode();
+
+    test();
+
+    new_batch();
 }
 
 void DQN::test()

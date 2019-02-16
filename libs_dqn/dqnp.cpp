@@ -11,14 +11,15 @@ DQNP::DQNP()
 }
 
 DQNP::DQNP( Json::Value &json_config,
-          float gamma,
-          sGeometry state_geometry,
-          unsigned int actions_count,
-          unsigned int experience_buffer_size)
-    :DQNInterface(state_geometry, actions_count, experience_buffer_size)
+            float gamma,
+            sGeometry state_geometry,
+            unsigned int actions_count,
+            unsigned int experience_buffer_size,
+            bool normalise)
+    :DQNInterface(state_geometry, actions_count, experience_buffer_size, normalise)
 {
   cnn = nullptr;
-  init(json_config, gamma,  state_geometry, actions_count, experience_buffer_size);
+  init(json_config, gamma,  state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 
@@ -26,12 +27,13 @@ DQNP::DQNP( std::string json_config_file_name,
             float gamma,
             sGeometry state_geometry,
             unsigned int actions_count,
-            unsigned int experience_buffer_size)
-    :DQNInterface(state_geometry, actions_count, experience_buffer_size)
+            unsigned int experience_buffer_size,
+            bool normalise)
+    :DQNInterface(state_geometry, actions_count, experience_buffer_size, normalise)
 {
   cnn = nullptr;
   JsonConfig json_config(json_config_file_name);
-  init(json_config.result, gamma,  state_geometry, actions_count, experience_buffer_size);
+  init(json_config.result, gamma,  state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 DQNP::DQNP( std::string json_config_file_name,
@@ -44,8 +46,9 @@ DQNP::DQNP( std::string json_config_file_name,
 
   float gamma = json_config.result["gamma"].asFloat();
   unsigned int experience_buffer_size = json_config.result["experience_buffer_size"].asInt();
+  bool normalise = json_config.result["normalise"].asBool();
 
-  init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size);
+  init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 DQNP::DQNP( std::string json_config_file_name)
@@ -58,13 +61,14 @@ DQNP::DQNP( std::string json_config_file_name)
 
     unsigned int experience_buffer_size = json_config.result["experience_buffer_size"].asInt();
     unsigned int actions_count = json_config.result["actions_count"].asInt();
+    bool normalise = json_config.result["normalise"].asBool();
 
     sGeometry state_geometry;
     state_geometry.w = json_config.result["state_geometry"][0].asInt();
     state_geometry.h = json_config.result["state_geometry"][1].asInt();
     state_geometry.h = json_config.result["state_geometry"][2].asInt();
 
-    init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size);
+    init(json_config.result["network_architecture"], gamma, state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 
@@ -84,9 +88,10 @@ void DQNP::init(   Json::Value &json_config,
                   float gamma,
                   sGeometry state_geometry,
                   unsigned int actions_count,
-                  unsigned int experience_buffer_size)
+                  unsigned int experience_buffer_size,
+                  bool normalise)
 {
-  init_interface(state_geometry, actions_count, experience_buffer_size);
+    init_interface(state_geometry, actions_count, experience_buffer_size, normalise);
 
     if (cnn != nullptr)
     {
@@ -130,8 +135,6 @@ void DQNP::learn()
 
   ptr--;
 
-  float limit = 0.999;
-
   while (ptr >= 0)
   {
     unsigned int state            = ptr;
@@ -156,11 +159,13 @@ void DQNP::learn()
 
     experience_buffer[state].q_values[action] = q;
 
-    for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
-      experience_buffer[state].q_values[i] = saturate(experience_buffer[state].q_values[i], -limit, limit);
-
     ptr--;
   }
+
+  if (normalise)
+      experience_buffer_normalise();
+
+  experience_buffer_clip();
 
   RandomDistribution distribution(priority, current_ptr);
 

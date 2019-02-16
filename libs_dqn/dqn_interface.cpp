@@ -6,9 +6,9 @@ DQNInterface::DQNInterface()
     gamma = 0.0;
 }
 
-DQNInterface::DQNInterface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size)
+DQNInterface::DQNInterface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size, bool normalise)
 {
-    init_interface(state_geometry, actions_count, experience_buffer_size);
+    init_interface(state_geometry, actions_count, experience_buffer_size, normalise);
 }
 
 DQNInterface::~DQNInterface()
@@ -16,12 +16,13 @@ DQNInterface::~DQNInterface()
 
 }
 
-void DQNInterface::init_interface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size)
+void DQNInterface::init_interface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size, bool normalise)
 {
         this->gamma = 0.0;
         this->state_geometry = state_geometry;
         this->actions_count = actions_count;
         this->experience_buffer_size = experience_buffer_size;
+        this->normalise = normalise;
 
   q_values.resize(actions_count);
 
@@ -176,7 +177,7 @@ void DQNInterface::save(std::string file_name_prefix)
 
   json_tmp["state_size"] = state_size;
   json_tmp["actions_count"] = actions_count;
- 
+
   JsonConfig json_result;
   json_result.result = json_tmp;
 
@@ -208,4 +209,66 @@ unsigned int DQNInterface::argmax(std::vector<float> &v)
       result = i;
 
   return result;
+}
+
+void DQNInterface::experience_buffer_info()
+{
+    float max = -1000000000;
+    float min = -max;
+
+    float average = 0.0;
+    unsigned int count = 0;
+
+    for (unsigned int state = 0; state < experience_buffer.size(); state++)
+        for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
+        {
+            if (experience_buffer[state].q_values[i] > max)
+                max = experience_buffer[state].q_values[i];
+            if (experience_buffer[state].q_values[i] < min)
+                min = experience_buffer[state].q_values[i];
+
+            average+= experience_buffer[state].q_values[i];
+            count++;
+        }
+
+    average = average/count;
+
+    std::cout << "experience_buffer_info " << min << " " << max << " " << average << "\n";
+}
+
+void DQNInterface::experience_buffer_clip()
+{
+    float limit = 2.0;
+    for (unsigned int state = 0; state < experience_buffer.size(); state++)
+        for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
+            experience_buffer[state].q_values[i] = saturate(experience_buffer[state].q_values[i], -limit, limit);
+}
+
+
+void DQNInterface::experience_buffer_normalise()
+{
+    float max = -1000000000;
+    float min = -max;
+
+    for (unsigned int state = 0; state < experience_buffer.size(); state++)
+        for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
+        {
+            if (experience_buffer[state].q_values[i] > max)
+                max = experience_buffer[state].q_values[i];
+            if (experience_buffer[state].q_values[i] < min)
+                min = experience_buffer[state].q_values[i];
+        }
+
+    float k = 0.0;
+    float q = 0.0;
+
+    if (max > min)
+    {
+        k = (1.0 - (-1.0))/(max - min);
+        q = 1.0 - k*max;
+    }
+
+    for (unsigned int state = 0; state < experience_buffer.size(); state++)
+        for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
+            experience_buffer[state].q_values[i] = k*experience_buffer[state].q_values[i] + q;
 }

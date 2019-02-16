@@ -12,13 +12,15 @@ class DQN: public DQNInterface
           float gamma,
           sGeometry state_geometry,
           unsigned int actions_count,
-          unsigned int experience_buffer_size);
+          unsigned int experience_buffer_size,
+          bool normalise);
 
     DQN(  std::string json_config_file_name,
           float gamma,
           sGeometry state_geometry,
           unsigned int actions_count,
-          unsigned int experience_buffer_size);
+          unsigned int experience_buffer_size,
+          bool normalise);
 
     DQN( std::string json_config_file_name,
          sGeometry state_geometry,
@@ -32,7 +34,8 @@ class DQN: public DQNInterface
                 float gamma,
                 sGeometry state_geometry,
                 unsigned int actions_count,
-                unsigned int experience_buffer_size);
+                unsigned int experience_buffer_size,
+                bool normalise);
 
 
     void compute_q_values(std::vector<float> &state);

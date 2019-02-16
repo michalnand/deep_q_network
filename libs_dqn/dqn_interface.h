@@ -20,6 +20,7 @@ class DQNInterface
 {
   protected:
     sGeometry state_geometry;
+    bool normalise;
     unsigned int state_size;
     unsigned int actions_count;
     unsigned int experience_buffer_size;
@@ -39,10 +40,10 @@ class DQNInterface
   public:
     DQNInterface();
 
-    DQNInterface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size);
+    DQNInterface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size, bool normalise);
     virtual ~DQNInterface();
 
-    void init_interface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size);
+    void init_interface(sGeometry state_geometry, unsigned int actions_count, unsigned int experience_buffer_size, bool normalise);
     void buffer_clear();
 
     std::vector<float>& get_q_values();
@@ -69,8 +70,13 @@ class DQNInterface
 
 
   protected:
+
     float saturate(float value, float min, float max);
     unsigned int argmax(std::vector<float> &v);
+
+    void experience_buffer_info();
+    void experience_buffer_clip();
+    void experience_buffer_normalise();
 };
 
 #endif
