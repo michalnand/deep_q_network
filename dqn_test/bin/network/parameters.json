@@ -1,0 +1,41 @@
+{
+  "experience_buffer_size"        : 256,
+  "gamma"                         : 0.9,
+  "normalise"                     : false,
+
+  "network_architecture":
+  {
+        "network_log_file_name" : "network.log",
+
+        "input_geometry"     : [1, 1, 8],
+        "output_geometry"    : [1, 1, 2],
+
+        "hyperparameters" :
+        {
+          "init_weight_range" : 0.0,
+          "learning_rate"     : 0.005,
+          "lambda1"           : 0.0000001,
+          "lambda2"           : 0.0000001,
+          "dropout"           : 0.02,
+
+          "minibatch_size"    : 32
+        },
+
+        "layers"         :
+        [
+
+
+            {
+                "type"      : "fc",
+                "geometry"      : [1, 1, 16]
+            },
+            {
+                "type"      : "relu"
+            },
+            {
+                "type"      : "output"
+            }
+
+        ]
+  }
+}

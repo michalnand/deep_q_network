@@ -138,13 +138,20 @@ void DQNInterface::print()
 
   std::cout << "actions_count = " << actions_count << "\n";
   std::cout << "experience_buffer_size = " << experience_buffer_size << "\n";
+  std::cout << "current_ptr = " << current_ptr << "\n";
 
   for (unsigned int j = 0; j < current_ptr; j++)
   {
     std::cout << "[";
     std::cout << j << " ";
+    std::cout << experience_buffer[j].reward << " ";
     std::cout << experience_buffer[j].action << " ";
-    std::cout << experience_buffer[j].q_values[experience_buffer[j].action] << " ";
+
+    std::cout << "Q=[";
+    for (unsigned int i = 0; i < experience_buffer[j].q_values.size(); i++)
+        std::cout << experience_buffer[j].q_values[i] << " ";
+    std::cout << "]";
+
     std::cout << experience_buffer[j].is_final << " ";
     std::cout << "]\n";
   }
@@ -238,7 +245,7 @@ void DQNInterface::experience_buffer_info()
 
 void DQNInterface::experience_buffer_clip()
 {
-    float limit = 2.0;
+    float limit = 4.0;
     for (unsigned int state = 0; state < experience_buffer.size(); state++)
         for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
             experience_buffer[state].q_values[i] = saturate(experience_buffer[state].q_values[i], -limit, limit);

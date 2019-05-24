@@ -102,6 +102,10 @@ void DQN::init(   Json::Value &json_config,
     output_geometry.h = 1;
     output_geometry.d = actions_count;
 
+    algorithm = DQN_Q_LEARNING;
+    if (json_config["algorithm"].asString() == "sarsa")
+        algorithm = DQN_SARSA;
+
 
     cnn = new CNN(json_config, state_geometry, output_geometry);
 }
@@ -129,27 +133,31 @@ void DQN::learn()
         unsigned int state            = ptr;
         unsigned int state_next       = ptr + 1;
         unsigned int action           = experience_buffer[state].action;
-        unsigned int best_action_next = argmax(experience_buffer[state_next].q_values);
+
+        unsigned int action_next =  argmax(experience_buffer[state_next].q_values);
+        if (algorithm == DQN_SARSA)
+            action_next = experience_buffer[state_next].action;
+
         float reward                  = experience_buffer[state].reward;
 
         float gamma_ = gamma;
         if (experience_buffer[state].is_final)
             gamma_ = 0.0;
 
-        float q = reward + gamma_*experience_buffer[state_next].q_values[best_action_next];
+        float q = reward + gamma_*experience_buffer[state_next].q_values[action_next];
         experience_buffer[state].q_values[action] = q;
 
-        /*
-        for (unsigned int a = 0; a < experience_buffer[state].q_values.size(); a++)
-            experience_buffer[state].q_values[a] = saturate(experience_buffer[state].q_values[a], -1.0, 1.0);
-        */
+
         ptr--;
     }
 
     if (normalise)
         experience_buffer_normalise();
 
-        experience_buffer_clip();
+    experience_buffer_clip();
+
+    //print();
+
     cnn->set_training_mode();
 
     for (unsigned int i = 0; i < current_ptr; i++)
