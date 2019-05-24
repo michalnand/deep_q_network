@@ -137,15 +137,17 @@ void DQN::learn()
             gamma_ = 0.0;
 
         float q = reward + gamma_*experience_buffer[state_next].q_values[best_action_next];
-
         experience_buffer[state].q_values[action] = q;
+
+        for (unsigned int a = 0; a < experience_buffer[state].q_values.size(); a++)
+            experience_buffer[state].q_values[a] = saturate(experience_buffer[state].q_values[a], -1.0, 1.0);
+            
         ptr--;
     }
 
     if (normalise)
         experience_buffer_normalise();
 
-    experience_buffer_clip();
 
     cnn->set_training_mode();
 
