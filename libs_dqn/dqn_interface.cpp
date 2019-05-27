@@ -245,7 +245,7 @@ void DQNInterface::experience_buffer_info()
 
 void DQNInterface::experience_buffer_clip()
 {
-    float limit = 4.0;
+    float limit = 10.0;
     for (unsigned int state = 0; state < experience_buffer.size(); state++)
         for (unsigned int i = 0; i < experience_buffer[state].q_values.size(); i++)
             experience_buffer[state].q_values[i] = saturate(experience_buffer[state].q_values[i], -limit, limit);
